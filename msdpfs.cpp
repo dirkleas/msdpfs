@@ -43,8 +43,8 @@ void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
 void msdpfs_free(t_msdpfs* self) {}
 
 void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
-    if (argc != 2) {
-        object_error((t_object*)self, "source and destination required, but missing%s", "");
+    if ((argc != 2) || (atom_gettype(&argv[0]) != A_SYM) || (atom_gettype(&argv[0]) != A_SYM)) {
+        object_error((t_object*)self, "source and destination required or incorrect type, specify valid files or directories%s", "");
         outlet_int(self->status, 0);
         return;		
     }
@@ -53,7 +53,7 @@ void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
         outlet_int(self->status, 1);
         return;
     } catch (const std::exception& e) {
-        object_error((t_object*)self, "can't copy from %s to %s", 
+        object_error((t_object*)self, "can't copy from %s to %s, invalid source or existing destination", 
             atom_getsym(&argv[0])->s_name, atom_getsym(&argv[1])->s_name);
         outlet_int(self->status, 0);
         return;
@@ -88,7 +88,7 @@ void msdpfs_domkdir(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 
 void msdpfs_dorm(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
     if (! exists(s->s_name)) {
-        object_error((t_object*)self, "no such directory %s", s->s_name);
+        object_error((t_object*)self, "no such file or directory %s", s->s_name);
         outlet_int(self->status, 0);
         return;
     }
@@ -98,7 +98,7 @@ void msdpfs_dorm(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
         return;
     }
     catch (const std::exception& e) {
-        object_error((t_object*)self, "can't remove directory %s", s->s_name);
+        object_error((t_object*)self, "can't remove file or directory %s", s->s_name);
         outlet_int(self->status, 0);
         return;
     }
