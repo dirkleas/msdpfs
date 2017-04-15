@@ -28,6 +28,7 @@ SDKs.
 
 * download and install [CMake](https://cmake.org/download/) binaries for your MacOS
 * download **BOOST** and untar
+* define environment variable for boost installation: **export BOOST_ROOT=[MY-BOOST-INSTALL-DIR]**
 * change directory to resulting directory
 * invoke the [following](https://tinyurl.com/mzhsghp) (thanks bruth) to generate 
 the universal binaries for static linking with resulting binaries under 
@@ -39,7 +40,7 @@ the universal binaries for static linking with resulting binaries under
 * change directory to resulting directory
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects; clone https://github.com/dirkleas/msdpfs.git**
-* return to the build direoctory and build the external binary: **cd ../../build; cmake ..; cmake --build .**
+* return to the build direoctory and build the external binary: **cd ../../build; BOOST_ROOT=$BOOST_ROOT cmake ..; BOOST_ROOT=$BOOST_ROOT cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
@@ -52,6 +53,7 @@ Build **Boost** static libraries as 64-bit **Windows** binary format.
 * download and install [CMake](https://cmake.org/download/) binaries for your MacOS
 * download **BOOST** and untar
 * change directory to resulting directory
+* define environment variable for boost installation: **export BOOST_ROOT=[MY-BOOST-INSTALL-DIR]**
 * **BOOST** complile/link details are TBD <== *** WARNING ***
 * download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
 * change directory to resulting directory
@@ -67,11 +69,8 @@ Build **Boost** static libraries as 64-bit **Windows** binary format.
 Unprioritized toDo items:
 
 * complete Windows walkthrough (e.g. compile/link details)
-* remove hard-coded references in CMake make spec
-* add additional type checking, clarify special cases, and adjust statusing to 
-external .cpp code for reliability
 * security/vulnerability/reliability peer review
-* verify file I/O behaviors
+* verify general/edge file I/O behaviors
 * implement cross-platform CI
 * enhance Max/MSP help file and consider reference, refactor other UX aspects 
 based on feedback
