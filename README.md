@@ -59,7 +59,7 @@ Build **Boost** static libraries as 64-bit **Windows** binary format.
 * change directory to resulting directory
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects; clone https://github.com/dirkleas/msdpfs.git**
-* return to the build direoctory and build the external binary: **cd ../../build; cmake ..; cmake --build .**
+* return to the build direoctory and build the external binary: **cd ../../build; BOOST_ROOT=$BOOST_ROOT cmake ..; BOOST_ROOT=$BOOST_ROOT cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
