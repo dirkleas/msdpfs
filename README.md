@@ -26,6 +26,8 @@ provided documentation incudes 1) BASH scripting for compiling universal binarie
 and 2) an enhanced [CMake](https://cmake.org/download/) script integrating the two 
 SDKs.
 
+* download and install the latest version of **Xcode** along with the CLI tools from 
+the **Apple App Store**
 * download and install [CMake](https://cmake.org/download/) binaries for your MacOS
 * download **BOOST** and untar
 * define environment variable for boost installation: **export BOOST_ROOT=[MY-BOOST-INSTALL-DIR]**
@@ -49,8 +51,8 @@ the universal binaries for static linking with resulting binaries under
 
 ## Windows:
 
-Build **Boost** static libraries as 64-bit **Windows** binary format. Build with
-a known, legacy version of [Visual Studio 12, 2013](https://tinyurl.com/qenh4bq)
+Build **max-devkit** with **Boost** static libraries as 64-bit **Windows** binary
+using a known, legacy version of [Visual Studio 12, 2013](https://tinyurl.com/qenh4bq)
 and apply Update 5 patch from within IDE.
 [CMake](https://cmake.org/download/) is used for compiling/linking the external.
 
