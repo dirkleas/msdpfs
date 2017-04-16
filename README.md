@@ -74,6 +74,8 @@ and apply Update 5 patch from within IDE.
 ```
 
 * if build fails, try alernative cmake definition via [gist](https://tinyurl.com/mb4to2j)
+with additional logging/debugging enabled, edit any hard-coded **BOOST** directories 
+based on your download directory
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
