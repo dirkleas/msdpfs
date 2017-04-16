@@ -34,7 +34,9 @@ SDKs.
 the universal binaries for static linking with resulting binaries under 
 **stage/lib**
 
+```
     rm -rf i386 x86_64 universal &&  ./bootstrap.sh --with-toolset=clang --with-libraries=filesystem && ./b2 toolset=darwin -j8 address-model=32 architecture=x86 -a && mkdir -p i386 && cp stage/lib/*.dylib i386 && ./b2 toolset=clang -j8 cxxflags="-arch i386 -arch x86_64" -a && mkdir x86_64 && cp stage/lib/*.dylib x86_64 && mkdir universal && for dylib in i386/*; do lipo -create -arch i386 $dylib -arch x86_64 x86_64/$(basename $dylib) -output universal/$(basename $dylib); done
+```
 
 * download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
 * change directory to resulting directory
@@ -63,9 +65,11 @@ download and install [CMake](https://cmake.org/download/) binaries for your MacO
 * add this repo to the demos projects directory: **cd ../source/projects; clone https://github.com/dirkleas/msdpfs.git**
 * return to the build direoctory and build the external binary *** WARNING: STILL FAILS ***
 
+```
      cd ../../build
      cmake -G "Visual Studio 12 Win64" -DWIN64:Bool=True  ..
      cmake --build . --config Release
+```
 
 * if build fails, try alernative cmake definition via [gist](https://tinyurl.com/mb4to2j)
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
