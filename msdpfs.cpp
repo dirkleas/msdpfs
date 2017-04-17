@@ -3,23 +3,24 @@
 
     Copyright (C) 2017  Dirk Leas
 
-    This programme is free software; you may redistribute and/or modify
+    This program is free software; you may redistribute and/or modify
     it under the terms of the GNU General Public Licence as published by
     the Free Software Foundation, either version 3 of said Licence, or
     (at your option) any later version.
 
 --
 
-    msdpfs - filesystem exists, rm, mkdir, cp (w/ boost c++)
+    msdpfs - filesystem exists, rm, mkdir, cp
 
     max-devkit api: quasi (https://tinyurl.com/khygtdf)
 
-    macos (boost universal https://tinyurl.com/mzhsghp):
+    macos:
     cmake ..
     cmake --build .
 
     windows:
-    TBD
+    cmake -G "Visual Studio 15 2017 Win64" -DWIN64:Bool=True  ..
+    cmake --build . --config Release
 */
 
 #ifdef _WIN32
