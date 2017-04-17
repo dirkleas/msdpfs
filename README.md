@@ -29,7 +29,7 @@ the **Apple App Store**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
 [clone/download](https://github.com/dirkleas/msdpfs.git) this project, rename if necessary 
 to **msdpfs**
-* return to the build direoctory and build the external binary:
+* return to the build directory and build the external binary:
 **cd ../../build; cmake ..; cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
@@ -48,10 +48,10 @@ Build the **MacOS** external via the following:
 * add this repo to the demos projects directory: **cd ../source/projects**, 
 [clone/download](https://github.com/dirkleas/msdpfs.git) this project, rename if necessary 
 to **msdpfs**
-* return to the build direoctory and build the external binary:
+* return to the build directory and build the external binary:
 ```
      cd ../../build
-     cmake -G "Visual Studio 12 Win64" -DWIN64:Bool=True  ..
+     cmake -G "Visual Studio 15 2017 Win64" -DWIN64:Bool=True  ..
      cmake --build . --config Release
 ```
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
