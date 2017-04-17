@@ -22,10 +22,17 @@
     TBD
 */
 
+#ifdef _WIN32
+    #include <direct.h>  
+#endif
+#include <stdlib.h> 
+#include <stdio.h>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sys/stat.h>
 #include "c74_max.h"
-#include <boost/filesystem.hpp>
 using namespace c74::max;
-using namespace boost::filesystem;
 
 struct t_msdpfs {
     t_object ob;
@@ -49,7 +56,9 @@ void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
         return;		
     }
     try {
-        copy(atom_getsym(&argv[0])->s_name, atom_getsym(&argv[1])->s_name);
+        std::ifstream src(atom_getsym(&argv[0])->s_name, std::ios::binary);
+        std::ofstream dst(atom_getsym(&argv[1])->s_name, std::ios::binary);
+        dst << src.rdbuf();
         outlet_int(self->status, 1);
         return;
     } catch (const std::exception& e) {
@@ -61,7 +70,8 @@ void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 }
 
 void msdpfs_doexists(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
-    if (exists(s->s_name)) outlet_int(self->status, 1);
+    struct stat f;
+    if (stat(s->s_name, &f) == 0) outlet_int(self->status, 1);
     else {
         object_error((t_object*)self, "no such file or directory %s", s->s_name);
         outlet_int(self->status, 0);
@@ -69,17 +79,23 @@ void msdpfs_doexists(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 }
 
 void msdpfs_domkdir(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
-    if (exists(s->s_name)) {
+    int status = -1;
+    struct stat f;
+    if (stat(s->s_name, &f) == 0) {
         object_error((t_object*)self, "directory %s already exists", s->s_name);
         outlet_int(self->status, 0);
         return;
-    }		
-    try {
-        create_directory(s->s_name);
+    }
+#ifdef _WIN32
+    status = _mkdir(s->s_name);
+#else
+    status = mkdir(s->s_name, 0777);
+#endif
+    if (status == 0) {
         outlet_int(self->status, 1);
         return;
     }
-    catch (const std::exception& e) {
+    else {
         object_error((t_object*)self, "can't make directory %s", s->s_name);
         outlet_int(self->status, 0);
         return;
@@ -87,18 +103,18 @@ void msdpfs_domkdir(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 }
 
 void msdpfs_dorm(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
-    if (! exists(s->s_name)) {
+    struct stat f;
+    if (stat(s->s_name, &f) != 0) {
         object_error((t_object*)self, "no such file or directory %s", s->s_name);
         outlet_int(self->status, 0);
         return;
     }
-    try {
-        remove(s->s_name);
+    if (remove(s->s_name) == 0) {
         outlet_int(self->status, 1);
         return;
     }
-    catch (const std::exception& e) {
-        object_error((t_object*)self, "can't remove file or directory %s", s->s_name);
+    else {
+        object_error((t_object*)self, "can't remove file or directory %s, error %d", s->s_name, errno);
         outlet_int(self->status, 0);
         return;
     }

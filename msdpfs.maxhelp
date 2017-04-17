@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 63.0, 81.0, 575.0, 321.0 ],
+		"rect" : [ 63.0, 81.0, 575.0, 606.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,12 +38,178 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-26",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 35.0, 330.0, 150.0, 20.0 ],
+					"style" : "",
+					"text" : "windows10"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 35.0, 82.0, 150.0, 20.0 ],
+					"style" : "",
+					"text" : "macos"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 303.0, 496.0, 74.0, 22.0 ],
+					"style" : "",
+					"text" : "exists c:/foo"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 303.0, 452.0, 94.0, 22.0 ],
+					"style" : "",
+					"text" : "exists c:/foo/a.b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 433.0, 411.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "rm c:/foo/a.b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 303.0, 541.0, 108.0, 22.0 ],
+					"style" : "",
+					"text" : "exists c:/nope"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-17",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 303.0, 411.0, 126.0, 22.0 ],
+					"style" : "",
+					"text" : "exists c:/autoexec.bat"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 35.0, 460.0, 34.0, 22.0 ],
+					"style" : "",
+					"text" : "print"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 433.0, 364.0, 57.0, 22.0 ],
+					"style" : "",
+					"text" : "rm c:/foo"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-20",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 303.0, 364.0, 87.0, 22.0 ],
+					"style" : "",
+					"text" : "exists c:/users"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 130.0, 363.0, 161.0, 22.0 ],
+					"style" : "",
+					"text" : "cp c:/autoexec.bat c:/foo/a.b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 35.0, 363.0, 73.0, 22.0 ],
+					"style" : "",
+					"text" : "mkdir c:/foo"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
+					"patching_rect" : [ 35.0, 424.0, 49.0, 22.0 ],
+					"style" : "",
+					"text" : "msdpfs"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-11",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 205.0, 88.0, 22.0 ],
+					"patching_rect" : [ 303.0, 250.0, 88.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /tmp/foo"
 				}
@@ -68,7 +234,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 161.0, 112.0, 22.0 ],
+					"patching_rect" : [ 303.0, 206.0, 112.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /tmp/passwd"
 				}
@@ -81,7 +247,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 430.0, 120.0, 95.0, 22.0 ],
+					"patching_rect" : [ 433.0, 165.0, 95.0, 22.0 ],
 					"style" : "",
 					"text" : "rm /tmp/passwd"
 				}
@@ -94,7 +260,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 250.0, 108.0, 22.0 ],
+					"patching_rect" : [ 303.0, 295.0, 108.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /nope"
 				}
@@ -107,7 +273,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 120.0, 108.0, 22.0 ],
+					"patching_rect" : [ 303.0, 165.0, 108.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /etc/passwd"
 				}
@@ -119,7 +285,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 32.0, 169.0, 34.0, 22.0 ],
+					"patching_rect" : [ 35.0, 214.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "print"
 				}
@@ -132,7 +298,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 430.0, 73.0, 71.0, 22.0 ],
+					"patching_rect" : [ 433.0, 118.0, 71.0, 22.0 ],
 					"style" : "",
 					"text" : "rm /tmp/foo"
 				}
@@ -145,7 +311,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 73.0, 64.0, 22.0 ],
+					"patching_rect" : [ 303.0, 118.0, 64.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /etc"
 				}
@@ -158,7 +324,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 127.0, 72.0, 161.0, 22.0 ],
+					"patching_rect" : [ 130.0, 117.0, 161.0, 22.0 ],
 					"style" : "",
 					"text" : "cp /etc/passwd /tmp/passwd"
 				}
@@ -171,7 +337,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 32.0, 72.0, 87.0, 22.0 ],
+					"patching_rect" : [ 35.0, 117.0, 87.0, 22.0 ],
 					"style" : "",
 					"text" : "mkdir /tmp/foo"
 				}
@@ -184,7 +350,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
-					"patching_rect" : [ 32.0, 133.0, 49.0, 22.0 ],
+					"patching_rect" : [ 35.0, 178.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "msdpfs"
 				}
@@ -215,6 +381,96 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-14", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-17", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-20", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-21", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-22", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-23", 0 ]
 				}
 
 			}
