@@ -29,7 +29,7 @@ SDKs.
 * download and install the latest version of **Xcode** along with the CLI tools from 
 the **Apple App Store**
 * download and install [CMake](https://cmake.org/download/) binaries for your MacOS
-* download **BOOST** and untar
+* download [Boost](http://www.boost.org/) and untar
 * define environment variable for boost installation: **export BOOST_ROOT=[MY-BOOST-INSTALL-DIR]**
 * change directory to resulting directory
 * invoke the [following](https://tinyurl.com/mzhsghp) (thanks bruth) to generate 
@@ -43,7 +43,9 @@ the universal binaries for static linking with resulting binaries under
 * download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
 * change directory to resulting directory
 * create build directory: **mkdir build; cd build**
-* add this repo to the demos projects directory: **cd ../source/projects; clone https://github.com/dirkleas/msdpfs.git**, ensure name is **msdpfs**
+* add this repo to the demos projects directory: **cd ../source/projects**, clone 
+[clone/download](https://github.com/dirkleas/msdpfs.git) project, ensure name is 
+**msdpfs**
 * return to the build direoctory and build the external binary: **cd ../../build; BOOST_ROOT=$BOOST_ROOT cmake ..; BOOST_ROOT=$BOOST_ROOT cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
@@ -58,13 +60,15 @@ and apply Update 5 patch from within IDE.
 
 * download install, and patch [Visual Studio 12, 2013](https://tinyurl.com/qenh4bq)
 * download and install [CMake](https://cmake.org/download/) binaries for your MacOS
-* download **BOOST** and untar
+* download [Boost](http://www.boost.org/) and untar
 * change directory to resulting directory
 * **BOOST** complile/link: **.\b2 --prefix="c:/h4x/boost_1_63_0" --with-filesystem --build-type=complete**
 * download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
 * change directory to resulting directory
 * create build directory: **mkdir build; cd build**
-* add this repo to the demos projects directory: **cd ../source/projects**, clone https://github.com/dirkleas/msdpfs.git, ensure name is **msdpfs**
+* add this repo to the demos projects directory: **cd ../source/projects**, clone 
+[clone/download](https://github.com/dirkleas/msdpfs.git) project, ensure name is 
+**msdpfs**
 * return to the build direoctory and build the external binary *** WARNING: STILL FAILS ***
 
 ```
@@ -73,9 +77,10 @@ and apply Update 5 patch from within IDE.
      cmake --build . --config Release
 ```
 
-* if build fails, try alernative cmake definition via [gist](https://tinyurl.com/mb4to2j)
+* if build fails, try alernative cmake definition via this [gist](https://tinyurl.com/mb4to2j)
 with additional logging/debugging enabled, edit any hard-coded **BOOST** directories 
-based on your download directory
+based on your download directory -- replace existing **source/projects/msdpfs/CMakeLists.txt** 
+and repeat **cmake** build steps above
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
