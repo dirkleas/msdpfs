@@ -39,12 +39,10 @@ Build the **MacOS** external via the following:
 * download and install the latest version of **Xcode** along with the CLI tools from 
 the **Apple App Store**
 * download and install [CMake](https://cmake.org/download/) binaries for MacOS
-* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
-* change directory to resulting directory
+* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), untar if downloaded, rename resulting directory to "max-devkit", and change directory to there
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
-[clone/download](https://github.com/dirkleas/msdpfs.git) this project, rename if necessary 
-to **msdpfs**
+clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
 **cd ../../build; cmake ..; cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
@@ -58,12 +56,10 @@ Build the **MacOS** external via the following:
 * download and install the latest free version of 
 [Visual Studio Community](https://www.visualstudio.com/downloads/)
 * download and install [CMake](https://cmake.org/download/) binaries for MacOS
-* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) and untar
-* change directory to resulting directory
+* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), unzip if downloaded, rename resulting directory to "max-devkit", and change directory to there
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
-[clone/download](https://github.com/dirkleas/msdpfs.git) this project, rename if necessary 
-to **msdpfs**
+clone/download [this project](https://github.com/dirkleas/msdpfs.git), unzip if downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
 ```
      cd ../../build
@@ -88,5 +84,5 @@ based on feedback
 
 --
 
-Feel free to submit pull requests, or submit feedback/suggestions 
+Feel free to submit issues, pull requests, or submit feedback/suggestions 
 [here](http://musicsdp.com/contact-the-team/). Enjoy!
