@@ -10,6 +10,22 @@ this repo's Max/MSP external **msdpfs** code for your specific platform. Recent
 binaries are available in the **externals** folder for your convenience. 
 **max-devkit** uses [CMake](https://cmake.org/download/) for building externals.
 
+Using **msdpfs** is simple -- add a **[msdpfs]** object to your patcher, then
+connect message objects with the appropriate argument symbols for your desired
+result. Refer to the project help patcher for examples of each of he behaviors 
+for **MacOS** and **Windows**.
+
+**msdpfs** Behaviors/Rules:
+
+* cp - copy a file or directory from source to destination with override
+* exists - check to see if a file or directory exists
+* mkdir - create a new directory where it doesn't exist
+* rm - delete file or directory if allowed and it exists
+
+All **msdpfs** requests respond to message input, sending 1 for success, 
+and 0 for failure as object output, with failure details on failure sent to 
+the Max Console.
+
 
 ## Quickstart:
 
