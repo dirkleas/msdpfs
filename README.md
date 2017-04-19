@@ -6,14 +6,18 @@ provides detailed walkthroughs for both **MacOS** and **Windows** for compiling
 and linking this repo's Max/MSP external **msdpfs** code with the 
 [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) for C++ (the 
 replacement for the legacy [Max SDK](https://github.com/Cycling74/max-api) for C) 
-to produce a binary for your specific platform. For your convenience, pre-compiled
-binaries are available in the project **Releases** section. **max-devkit** uses 
+to produce a binary for your specific platform. **max-devkit** uses 
 [CMake](https://cmake.org/download/) for building externals.
 
-Using **msdpfs** once compiled is simple -- add a **[msdpfs]** object to your 
-patcher, then connect message objects with the appropriate argument symbols for 
-your desired result. Refer to the project help patcher for examples of each of 
-the behaviors for **MacOS** and **Windows**.
+For your convenience, pre-compiled binaries are also available in the project 
+**Releases** menubar. Add them to your **Max/MSP** file path via the 
+**Options**, **File Preferences...** menu.
+
+Using the **msdpfs** external whether you install the pre-compiled binary or
+build it via the **Quickstart** below is simple -- add a **[msdpfs]** object 
+to your patcher, then connect message objects with the appropriate argument 
+symbols for your desired result. Refer to the project help patcher for examples 
+of each of the behaviors for **MacOS** and **Windows**.
 
 **msdpfs** Behaviors/Rules:
 
@@ -51,7 +55,8 @@ clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if
 downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
 **cd ../../build; cmake ..; cmake --build .**
-* add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
+* add **max-devkit** directory to your Max/MSP path via 
+**Options**, **File Preferences...** menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
 
@@ -75,7 +80,8 @@ downloaded, rename resulting directory to "msdpfs"
      cmake -G "Visual Studio 15 2017 Win64" -DWIN64:Bool=True  ..
      cmake --build . --config Release
 ```
-* add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
+* add **max-devkit** directory to your Max/MSP path via 
+**Options**, **File Preferences...** menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
 
 
