@@ -17,7 +17,9 @@ Using the **msdpfs** external whether you install the pre-compiled binary or
 build it via the **Quickstart** below is simple -- add a **[msdpfs]** object 
 to your patcher, then connect message objects with the appropriate argument 
 symbols for your desired result. Refer to the project help patcher for examples 
-of each of the behaviors for **MacOS** and **Windows**.
+of each of the behaviors for **MacOS** and **Windows** -- here's a screenshot.
+
+![msdpfs usage](https://cloud.githubusercontent.com/assets/52076/25161907/a90dbbf8-248c-11e7-9352-0367c25de4bd.png)
 
 **msdpfs** Behaviors/Rules:
 
