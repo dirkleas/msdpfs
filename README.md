@@ -23,7 +23,7 @@ of each of the behaviors for **MacOS** and **Windows** -- here's a screenshot.
 
 **msdpfs** Behaviors/Rules:
 
-* cp - copy a file or directory from source to destination with override
+* cp - copy a file from source to destination with override
 * exists - check to see if a file or directory exists
 * mkdir - create a new directory where it doesn't exist
 * rm - delete file or directory if allowed and it exists
@@ -49,8 +49,12 @@ then run it and click on the **Tools** menu, then click the
 **How to Install For Command Line Use** submenu and follow along to expose 
 from the shell/teminal
 * clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), 
-untar if downloaded, rename resulting directory to "max-devkit", and change 
-directory to there
+untar if downloaded, rename resulting directory to "max-devkit"
+* clone/download the **max-devkit** subproject 
+[Cycling74 max-api](https://github.com/Cycling74/max-api), untar if 
+downloaded, rename it as **max-api**, and move it to the **max-devkit/source** 
+directory
+* change directory to **max-devkit**
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
 clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if 
@@ -70,8 +74,12 @@ Build the **MacOS** external via the following:
 [Visual Studio Community](https://www.visualstudio.com/downloads/)
 * download and install [CMake](https://cmake.org/download/) binary for Windows
 * clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), 
-unzip if downloaded, rename resulting directory to "max-devkit", and change 
-directory to there
+untar if downloaded, rename resulting directory to "max-devkit"
+* clone/download the **max-devkit** subproject 
+[Cycling74 max-api](https://github.com/Cycling74/max-api), untar if 
+downloaded, rename it as **max-api**, and move it to the **max-devkit\source** 
+directory
+* change directory to **max-devkit**
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
 clone/download [this project](https://github.com/dirkleas/msdpfs.git), unzip if 
