@@ -91,13 +91,15 @@ downloaded, rename resulting directory to "msdpfs"
 
 Unprioritized toDo items:
 
-* security/vulnerability/reliability peer review
+* security/vulnerability/reliability peer review, and more peer review
 * verify general/edge file I/O behaviors
-* implement cross-platform CI
-* enhance Max/MSP help file and consider reference, refactor other UX aspects 
-based on feedback
+* enhance Max/MSP help patcher, refactor other UX aspects based on feedback
 
 --
 
-Feel free to submit issues, pull requests, or submit feedback/suggestions 
-[here](http://musicsdp.com/contact-the-team/). Enjoy!
+Feel free to submit issues or pull requests for this project through the 
+associated tabs above. 
+[Feedback/suggestions](http://musicsdp.com/contact-the-team/) is also greatly 
+appreciated. 
+
+[[[[Enjoy!]joy!]oy!]!]
