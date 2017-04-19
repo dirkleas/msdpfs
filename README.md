@@ -1,19 +1,19 @@
 # msdpfs
 
 **msdpfs** is a Max/MSP external used by [Music_SDP](http://musicsdp.com/) for 
-basic file services (e.g. exists, cp, mkdir, and rm). The Quickstart section 
-provides detailed walkthroughs for both **MacOS** and **Windows** for compiling and 
-linking this repo with the 
-[Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) for C++ (this is 
-replacement legacy [Max SDK](https://github.com/Cycling74/max-api) for C), and 
-this repo's Max/MSP external **msdpfs** code for your specific platform. Recent 
-binaries are available in the **externals** folder for your convenience. 
-**max-devkit** uses [CMake](https://cmake.org/download/) for building externals.
+basic file services (e.g. cp, exists, mkdir, and rm). The Quickstart section 
+provides detailed walkthroughs for both **MacOS** and **Windows** for compiling 
+and linking this repo's Max/MSP external **msdpfs** code with the 
+[Cycling74 max-devkit](https://github.com/Cycling74/max-devkit) for C++ (the 
+replacement for the legacy [Max SDK](https://github.com/Cycling74/max-api) for C) 
+to produce a binary for your specific platform. For your convenience, pre-compiled
+binaries are available in the project **Releases** section. **max-devkit** uses 
+[CMake](https://cmake.org/download/) for building externals.
 
-Using **msdpfs** is simple -- add a **[msdpfs]** object to your patcher, then
-connect message objects with the appropriate argument symbols for your desired
-result. Refer to the project help patcher for examples of each of he behaviors 
-for **MacOS** and **Windows**.
+Using **msdpfs** once compiled is simple -- add a **[msdpfs]** object to your 
+patcher, then connect message objects with the appropriate argument symbols for 
+your desired result. Refer to the project help patcher for examples of each of 
+the behaviors for **MacOS** and **Windows**.
 
 **msdpfs** Behaviors/Rules:
 
@@ -36,13 +36,19 @@ Complete the following steps for your preferred **MacOS** or **Windows** platfor
 
 Build the **MacOS** external via the following:
 
-* download and install the latest version of **Xcode** along with the CLI tools from 
-the **Apple App Store**
-* download and install [CMake](https://cmake.org/download/) binaries for MacOS
-* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), untar if downloaded, rename resulting directory to "max-devkit", and change directory to there
+* download and install the latest version of **Xcode** along with the CLI tools 
+from the **Apple App Store**
+* download and install [CMake](https://cmake.org/download/) binary for MacOS, 
+then run it and click on the **Tools** menu, then click the 
+**How to Install For Command Line Use** submenu and follow along to expose 
+from the shell/teminal
+* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), 
+untar if downloaded, rename resulting directory to "max-devkit", and change 
+directory to there
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
-clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if downloaded, rename resulting directory to "msdpfs"
+clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if 
+downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
 **cd ../../build; cmake ..; cmake --build .**
 * add **max-devkit** folder to your Max/MSP path via Options, File Preferences... menu
@@ -55,11 +61,14 @@ Build the **MacOS** external via the following:
 
 * download and install the latest free version of 
 [Visual Studio Community](https://www.visualstudio.com/downloads/)
-* download and install [CMake](https://cmake.org/download/) binaries for MacOS
-* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), unzip if downloaded, rename resulting directory to "max-devkit", and change directory to there
+* download and install [CMake](https://cmake.org/download/) binary for Windows
+* clone/download [Cycling74 max-devkit](https://github.com/Cycling74/max-devkit), 
+unzip if downloaded, rename resulting directory to "max-devkit", and change 
+directory to there
 * create build directory: **mkdir build; cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
-clone/download [this project](https://github.com/dirkleas/msdpfs.git), unzip if downloaded, rename resulting directory to "msdpfs"
+clone/download [this project](https://github.com/dirkleas/msdpfs.git), unzip if 
+downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
 ```
      cd ../../build
@@ -74,13 +83,11 @@ clone/download [this project](https://github.com/dirkleas/msdpfs.git), unzip if 
 
 Unprioritized toDo items:
 
-* complete Windows walkthrough (e.g. compile/link details)
 * security/vulnerability/reliability peer review
 * verify general/edge file I/O behaviors
 * implement cross-platform CI
 * enhance Max/MSP help file and consider reference, refactor other UX aspects 
 based on feedback
-* automate builds for both platforms
 
 --
 
