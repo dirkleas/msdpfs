@@ -29,6 +29,7 @@
 #include <stdlib.h> 
 #include <stdio.h>
 #include <string>
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -42,6 +43,20 @@ struct t_msdpfs {
 
 static t_class* this_class = nullptr;
 
+const char* real_path(const char* f) { // simple alternative to mxj MaxSystem.maxPathToNativePath()
+    if (f[0] != '/') { // MacOS absolute path algorithm: prepend /Volumes, drop colon
+        std::string s(f);
+        int offset = s.find_first_of(":");
+        if (offset != std::string::npos) {
+            s.erase(offset, 1);
+            s = "/Volumes/" + s;
+            return s.c_str();
+        }
+        else return f;
+    }
+    else return f;
+}
+
 void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
     t_msdpfs* self = (t_msdpfs*) object_alloc(this_class);
     self->status = outlet_new(self, "cmd status, 1=success, 0=failure");
@@ -52,13 +67,13 @@ void msdpfs_free(t_msdpfs* self) {}
 
 void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
     if ((argc != 2) || (atom_gettype(&argv[0]) != A_SYM) || (atom_gettype(&argv[0]) != A_SYM)) {
-        object_error((t_object*)self, "source and destination required or incorrect type, specify valid files or directories%s", "");
+        object_error((t_object*)self, "source/destination missing or incorrect type, specify valid files%s", "");
         outlet_int(self->status, 0);
         return;		
     }
     try {
-        std::ifstream src(atom_getsym(&argv[0])->s_name, std::ios::binary);
-        std::ofstream dst(atom_getsym(&argv[1])->s_name, std::ios::binary);
+        std::ifstream src(real_path(atom_getsym(&argv[0])->s_name), std::ios::binary);
+        std::ofstream dst(real_path(atom_getsym(&argv[1])->s_name), std::ios::binary);
         dst << src.rdbuf();
         outlet_int(self->status, 1);
         return;
@@ -72,7 +87,7 @@ void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 
 void msdpfs_doexists(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
     struct stat f;
-    if (stat(s->s_name, &f) == 0) outlet_int(self->status, 1);
+    if (stat(real_path(s->s_name), &f) == 0) outlet_int(self->status, 1);
     else {
         object_error((t_object*)self, "no such file or directory %s", s->s_name);
         outlet_int(self->status, 0);
@@ -82,15 +97,15 @@ void msdpfs_doexists(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 void msdpfs_domkdir(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
     int status = -1;
     struct stat f;
-    if (stat(s->s_name, &f) == 0) {
+    if (stat(real_path(s->s_name), &f) == 0) {
         object_error((t_object*)self, "directory %s already exists", s->s_name);
         outlet_int(self->status, 0);
         return;
     }
 #ifdef _WIN32
-    status = _mkdir(s->s_name);
+    status = _mkdir(real_path(s->s_name));
 #else
-    status = mkdir(s->s_name, 0777);
+    status = mkdir(real_path(s->s_name), 0777);
 #endif
     if (status == 0) {
         outlet_int(self->status, 1);
@@ -105,12 +120,12 @@ void msdpfs_domkdir(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 
 void msdpfs_dorm(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
     struct stat f;
-    if (stat(s->s_name, &f) != 0) {
+    if (stat(real_path(s->s_name), &f) != 0) {
         object_error((t_object*)self, "no such file or directory %s", s->s_name);
         outlet_int(self->status, 0);
         return;
     }
-    if (remove(s->s_name) == 0) {
+    if (remove(real_path(s->s_name)) == 0) {
         outlet_int(self->status, 1);
         return;
     }

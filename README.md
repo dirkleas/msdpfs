@@ -23,6 +23,9 @@ of each of the behaviors for **MacOS** and **Windows** -- here's a screenshot.
 
 **msdpfs** Behaviors/Rules:
 
+Everything supports standard MacOS/Windows and Max/MSP path-oriented naming
+conventions.
+
 * cp - copy a file from source to destination with override
 * exists - check to see if a file or directory exists
 * mkdir - create a new directory where it doesn't exist
