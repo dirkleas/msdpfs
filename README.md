@@ -58,12 +58,12 @@ untar if downloaded, rename resulting directory to "max-devkit"
 downloaded, rename it as **max-api**, and move it to the **max-devkit/source** 
 directory
 * change directory to **max-devkit**
-* create build directory: **mkdir build; cd build**
+* create build directory: **mkdir build && cd build**
 * add this repo to the demos projects directory: **cd ../source/projects**, 
 clone/download [this project](https://github.com/dirkleas/msdpfs.git), untar if 
 downloaded, rename resulting directory to "msdpfs"
 * return to the build directory and build the external binary:
-**cd ../../build; cmake ..; cmake --build .**
+**cd ../../build && cmake .. && cmake --build .**
 * add **max-devkit** directory to your Max/MSP path via 
 **Options**, **File Preferences...** menu
 * test the external with the included **msdpfs** help patcher **msdpfs.maxhelp**
