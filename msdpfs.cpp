@@ -44,7 +44,8 @@ struct t_msdpfs {
 static t_class* this_class = nullptr;
 
 const char* real_path(const char* f) { // simple alternative to mxj MaxSystem.maxPathToNativePath()
-    if (f[0] != '/') { // MacOS absolute path algorithm: prepend /Volumes, drop colon
+#ifndef _WIN32
+	if (f[0] != '/') { // MacOS absolute path algorithm: prepend /Volumes, drop colon
         std::string s(f);
         int offset = s.find_first_of(":");
         if (offset != std::string::npos) {
@@ -54,7 +55,8 @@ const char* real_path(const char* f) { // simple alternative to mxj MaxSystem.ma
         }
         else return f;
     }
-    else return f;
+#endif
+	return f;
 }
 
 void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
