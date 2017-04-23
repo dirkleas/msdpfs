@@ -26,10 +26,6 @@
 #ifdef _WIN32
     #include <direct.h>  
 #endif
-#include <stdlib.h> 
-#include <stdio.h>
-#include <string>
-#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -46,7 +42,7 @@ static t_class* this_class = nullptr;
 const char* real_path(const char* f) {
     static char name[MAX_PATH_CHARS];
     path_nameconform(f, name, PATH_STYLE_SLASH, PATH_TYPE_BOOT);
-	return name;
+    return name;
 }
 
 void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
