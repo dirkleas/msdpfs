@@ -47,7 +47,7 @@ const char* real_path(const char* f) {
 
 void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
     t_msdpfs* self = (t_msdpfs*) object_alloc(this_class);
-    self->status = outlet_new(self, "cmd status, 1=success, 0=failure");
+    self->status = outlet_new(self, "status, 1=success, 0=failure");
     return self;
 }
 
@@ -135,14 +135,14 @@ void msdpfs_assist(t_msdpfs* self, void* unused, t_assist_function io, long inde
     if (io == ASSIST_INLET) {
         switch (index) {
             case 0: 
-                strncpy(string_dest,"[ cp | exists | mkdir | rm ] FILE | DIR [ FILE ]", ASSIST_STRING_MAXSIZE); 
+                strncpy(string_dest,"[cp|exists|mkdir|rm SOURCE (DESTINATION)]", ASSIST_STRING_MAXSIZE); 
                 break;
         }
     }
     else if (io == ASSIST_OUTLET) {
         switch (index) {
             case 0: 
-                strncpy(string_dest,"status, 1=success, 0=fail", ASSIST_STRING_MAXSIZE); 
+                strncpy(string_dest,"status, 1=success, 0=failure", ASSIST_STRING_MAXSIZE); 
                 break;
         }
     }

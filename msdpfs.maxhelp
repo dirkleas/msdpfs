@@ -247,7 +247,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
+					"outlettype" : [ "status, 1=success, 0=failure" ],
 					"patching_rect" : [ 32.0, 491.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "msdpfs"
@@ -300,7 +300,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 430.0, 143.0, 95.0, 22.0 ],
+					"patching_rect" : [ 430.0, 184.0, 95.0, 22.0 ],
 					"style" : "",
 					"text" : "rm /tmp/passwd"
 				}
@@ -389,7 +389,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
+					"outlettype" : [ "status, 1=success, 0=failure" ],
 					"patching_rect" : [ 32.0, 166.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "msdpfs"
