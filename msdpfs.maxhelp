@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 63.0, 81.0, 575.0, 606.0 ],
+		"rect" : [ 183.0, 107.0, 555.0, 639.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,12 +38,25 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 127.0, 105.0, 161.0, 22.0 ],
+					"style" : "",
+					"text" : "cp /etc/passwd /tmp/passwd"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-29",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 24.0, 273.0, 164.0, 22.0 ],
+					"patching_rect" : [ 300.0, 341.0, 164.0, 22.0 ],
 					"style" : "",
 					"text" : "exists \"Macintosh HDD:/tmp\""
 				}
@@ -56,7 +69,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 14.0, 55.0, 161.0, 22.0 ],
+					"patching_rect" : [ 300.0, 377.0, 161.0, 22.0 ],
 					"style" : "",
 					"text" : "exists \"Macintosh HD:/tmpy\""
 				}
@@ -69,62 +82,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 222.0, 68.0, 155.0, 22.0 ],
+					"patching_rect" : [ 300.0, 305.0, 155.0, 22.0 ],
 					"style" : "",
 					"text" : "exists \"Macintosh HD:/tmp\""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-32",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 388.0, 68.0, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "clear"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-30",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 545.0, 18.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-27",
-					"items" : [ ".adobeLockFile", ",", ".keystone_install_lock", ",", ".rnsem501-roon", ",", "adobegc.log", ",", "swtag.log" ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 433.0, 68.0, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-24",
-					"linecount" : 2,
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "int" ],
-					"patching_rect" : [ 433.0, 18.0, 106.0, 35.0 ],
-					"style" : "",
-					"text" : "folder \"Macintosh HD:/tmp\""
 				}
 
 			}
@@ -134,9 +94,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 330.0, 150.0, 20.0 ],
+					"patching_rect" : [ 32.0, 397.0, 150.0, 20.0 ],
 					"style" : "",
-					"text" : "windows10"
+					"text" : "Windows10"
 				}
 
 			}
@@ -146,9 +106,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 82.0, 150.0, 20.0 ],
+					"patching_rect" : [ 32.0, 70.0, 150.0, 20.0 ],
 					"style" : "",
-					"text" : "macos"
+					"text" : "MacOS"
 				}
 
 			}
@@ -159,7 +119,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 496.0, 74.0, 22.0 ],
+					"patching_rect" : [ 304.0, 542.0, 74.0, 22.0 ],
 					"style" : "",
 					"text" : "exists c:/foo"
 				}
@@ -172,7 +132,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 452.0, 94.0, 22.0 ],
+					"patching_rect" : [ 304.0, 505.0, 94.0, 22.0 ],
 					"style" : "",
 					"text" : "exists c:/foo/a.b"
 				}
@@ -185,7 +145,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 433.0, 411.0, 77.0, 22.0 ],
+					"patching_rect" : [ 434.0, 505.0, 77.0, 22.0 ],
 					"style" : "",
 					"text" : "rm c:/foo/a.b"
 				}
@@ -198,7 +158,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 541.0, 108.0, 22.0 ],
+					"patching_rect" : [ 304.0, 579.0, 108.0, 22.0 ],
 					"style" : "",
 					"text" : "exists c:/nope"
 				}
@@ -211,7 +171,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 411.0, 126.0, 22.0 ],
+					"patching_rect" : [ 300.0, 471.0, 126.0, 22.0 ],
 					"style" : "",
 					"text" : "exists c:/autoexec.bat"
 				}
@@ -223,7 +183,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 460.0, 34.0, 22.0 ],
+					"patching_rect" : [ 32.0, 527.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "print"
 				}
@@ -236,7 +196,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 433.0, 364.0, 57.0, 22.0 ],
+					"patching_rect" : [ 434.0, 542.0, 57.0, 22.0 ],
 					"style" : "",
 					"text" : "rm c:/foo"
 				}
@@ -249,7 +209,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 364.0, 87.0, 22.0 ],
+					"patching_rect" : [ 300.0, 431.0, 87.0, 22.0 ],
 					"style" : "",
 					"text" : "exists c:/users"
 				}
@@ -262,7 +222,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 363.0, 161.0, 22.0 ],
+					"patching_rect" : [ 127.0, 430.0, 161.0, 22.0 ],
 					"style" : "",
 					"text" : "cp c:/autoexec.bat c:/foo/a.b"
 				}
@@ -275,7 +235,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 35.0, 363.0, 73.0, 22.0 ],
+					"patching_rect" : [ 32.0, 430.0, 73.0, 22.0 ],
 					"style" : "",
 					"text" : "mkdir c:/foo"
 				}
@@ -288,7 +248,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
-					"patching_rect" : [ 35.0, 424.0, 49.0, 22.0 ],
+					"patching_rect" : [ 32.0, 491.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "msdpfs"
 				}
@@ -301,7 +261,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 250.0, 88.0, 22.0 ],
+					"patching_rect" : [ 300.0, 228.0, 88.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /tmp/foo"
 				}
@@ -309,13 +269,14 @@
 			}
 , 			{
 				"box" : 				{
+					"fontsize" : 14.0,
 					"id" : "obj-12",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 32.0, 33.0, 374.0, 20.0 ],
+					"patching_rect" : [ 32.0, 29.0, 321.0, 22.0 ],
 					"style" : "",
-					"text" : "msdpfs: core file system services for cp, exists, mkdir, and rm"
+					"text" : "msdpfs - file system cp, exists, mkdir, and rm"
 				}
 
 			}
@@ -326,7 +287,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 206.0, 112.0, 22.0 ],
+					"patching_rect" : [ 300.0, 184.0, 112.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /tmp/passwd"
 				}
@@ -339,7 +300,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 433.0, 165.0, 95.0, 22.0 ],
+					"patching_rect" : [ 430.0, 143.0, 95.0, 22.0 ],
 					"style" : "",
 					"text" : "rm /tmp/passwd"
 				}
@@ -352,7 +313,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 295.0, 108.0, 22.0 ],
+					"patching_rect" : [ 300.0, 264.0, 108.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /nope"
 				}
@@ -365,7 +326,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 165.0, 108.0, 22.0 ],
+					"patching_rect" : [ 300.0, 143.0, 108.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /etc/passwd"
 				}
@@ -377,7 +338,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 214.0, 34.0, 22.0 ],
+					"patching_rect" : [ 32.0, 202.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "print"
 				}
@@ -390,7 +351,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 433.0, 118.0, 71.0, 22.0 ],
+					"patching_rect" : [ 430.0, 228.0, 71.0, 22.0 ],
 					"style" : "",
 					"text" : "rm /tmp/foo"
 				}
@@ -403,22 +364,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 303.0, 118.0, 64.0, 22.0 ],
+					"patching_rect" : [ 300.0, 106.0, 64.0, 22.0 ],
 					"style" : "",
 					"text" : "exists /etc"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 117.0, 161.0, 22.0 ],
-					"style" : "",
-					"text" : "cp /etc/passwd /tmp/passwd"
 				}
 
 			}
@@ -429,7 +377,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 35.0, 117.0, 87.0, 22.0 ],
+					"patching_rect" : [ 32.0, 105.0, 87.0, 22.0 ],
 					"style" : "",
 					"text" : "mkdir /tmp/foo"
 				}
@@ -442,7 +390,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "cmd status, 1=success, 0=failure" ],
-					"patching_rect" : [ 35.0, 178.0, 49.0, 22.0 ],
+					"patching_rect" : [ 32.0, 166.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "msdpfs"
 				}
@@ -568,15 +516,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-27", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-24", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -599,24 +538,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-24", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-30", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-27", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-32", 0 ]
 				}
 
 			}
