@@ -1,11 +1,12 @@
 # msdpfs
 
 **msdpfs** is a **Max 7** (Cycling74) external used by 
-[Music_SDP](http://musicsdp.com/) for basic file services (e.g. cp, exists, 
-mkdir, and rm). The Quickstart section below provides step-by-step instructions
-for **MacOS** and **Windows** to compile, link, and install this external for
-**Max 7**. It uses Cycling74's [max-devkit](https://github.com/Cycling74/max-devkit) 
-for C++ and [CMake](https://cmake.org/download/) for build automation.
+[Music_SDP](http://musicsdp.com/) ([source](https://github.com/MusicSDP/source-code))
+for basic file services cp, exists, mkdir, and rm. The Quickstart section 
+below provides step-by-step instructions for **MacOS** and **Windows** to 
+compile, link, and install this external for **Max 7**. It uses Cycling74's 
+[max-devkit](https://github.com/Cycling74/max-devkit) for C++ and 
+[CMake](https://cmake.org/download/) for build automation.
 
 For your convenience, pre-compiled binaries are also available in the project 
 **Releases** menubar. Add them to your **Max 7** file path via the 
