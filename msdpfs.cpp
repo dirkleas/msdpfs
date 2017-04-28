@@ -1,3 +1,4 @@
+
 /**
     msdpfs.cpp, by Dirk Leas
 
@@ -10,7 +11,7 @@
 
 --
 
-    msdpfs - filesystem exists, rm, mkdir, cp
+    msdpfs - filesystem exists, rm, mkdir, cp and semi-related env
 
     max-devkit api: quasi (https://tinyurl.com/khygtdf)
 
@@ -26,6 +27,7 @@
 #ifdef _WIN32
     #include <direct.h>  
 #endif
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -34,7 +36,8 @@ using namespace c74::max;
 
 struct t_msdpfs {
     t_object ob;
-    void *status;
+    void *status; // status from cp, exists, mkdir, rm
+    void *env_val; // value of environment variable from env
 };
 
 static t_class* this_class = nullptr;
@@ -47,6 +50,7 @@ const char* real_path(const char* f) {
 
 void* msdpfs_new(t_symbol* name, long argc, t_atom* argv) {
     t_msdpfs* self = (t_msdpfs*) object_alloc(this_class);
+    self->env_val = outlet_new(self, "environment variable value"); // odd, had to add backwards order?!
     self->status = outlet_new(self, "status, 1=success, 0=failure");
     return self;
 }
@@ -71,6 +75,14 @@ void msdpfs_docp(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
         outlet_int(self->status, 0);
         return;
     }
+}
+
+void msdpfs_doenv(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
+    static char* value;
+    value = getenv(s->s_name);
+    object_error((t_object*)self, "environment variable: %s, value: %s", s->s_name, value);
+    if (value != NULL) outlet_anything(self->status, gensym(value), 0, NULL);
+    else outlet_anything(self->status, gensym(""), 0, NULL);
 }
 
 void msdpfs_doexists(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
@@ -127,6 +139,7 @@ void msdpfs_dorm(t_msdpfs* self, t_symbol* s, long argc, t_atom* argv) {
 void msdpfs_cp(t_object* self, t_symbol* s, long argc, t_atom* argv) {
     defer(self, (method)msdpfs_docp, s, argc, argv);
 }
+void msdpfs_env(t_object* self, t_symbol* s) { defer(self, (method)msdpfs_doenv, s, 0, NULL); }
 void msdpfs_exists(t_object* self, t_symbol* s) { defer(self, (method)msdpfs_doexists, s, 0, NULL); }
 void msdpfs_mkdir(t_object* self, t_symbol* s) { defer(self, (method)msdpfs_domkdir, s, 0, NULL); }
 void msdpfs_rm(t_object* self, t_symbol* s) { defer(self, (method)msdpfs_dorm, s, 0, NULL); }
@@ -141,8 +154,11 @@ void msdpfs_assist(t_msdpfs* self, void* unused, t_assist_function io, long inde
     }
     else if (io == ASSIST_OUTLET) {
         switch (index) {
-            case 0: 
+            case 0:
                 strncpy(string_dest,"status, 1=success, 0=failure", ASSIST_STRING_MAXSIZE); 
+                break;
+            case 1:
+                strncpy(string_dest,"environment variable value", ASSIST_STRING_MAXSIZE); 
                 break;
         }
     }
@@ -151,6 +167,7 @@ void msdpfs_assist(t_msdpfs* self, void* unused, t_assist_function io, long inde
 void ext_main(void* r) {
     this_class = class_new("msdpfs", (method)msdpfs_new, (method)msdpfs_free, sizeof(t_msdpfs), 0L, A_GIMME, 0);
     class_addmethod(this_class, (method)msdpfs_cp, "cp", A_GIMME, 0);
+    class_addmethod(this_class, (method)msdpfs_env, "env", A_DEFSYM, 0);
     class_addmethod(this_class, (method)msdpfs_exists, "exists", A_DEFSYM, 0);
     class_addmethod(this_class, (method)msdpfs_mkdir, "mkdir", A_DEFSYM, 0);
     class_addmethod(this_class, (method)msdpfs_rm, "rm", A_DEFSYM, 0);

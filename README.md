@@ -2,7 +2,8 @@
 
 **msdpfs** is a **Max 7** (Cycling74) external used by 
 [Music_SDP](http://musicsdp.com/) ([source](https://github.com/MusicSDP/source-code))
-for basic file services cp, exists, mkdir, and rm. **Quickstart**
+for basic file services cp, exists, mkdir, and rm. Environment variables
+can also be looked up via env. **Quickstart**
 below provides step-by-step instructions for **MacOS** and **Windows** to 
 compile, link, and install this external for **Max 7**. It uses Cycling74's 
 [max-devkit](https://github.com/Cycling74/max-devkit) for C++ and 
@@ -26,6 +27,7 @@ Everything supports native **MacOS**/**Windows** and **Max 7** path-oriented
 naming conventions.
 
 * cp - copy a file from source to destination with override
+* env - look up environment variable if defined
 * exists - check to see if a file or directory exists
 * mkdir - create a new directory where it doesn't exist
 * rm - delete file or directory if allowed and it exists
